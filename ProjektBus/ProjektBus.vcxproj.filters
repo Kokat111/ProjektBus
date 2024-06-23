@@ -27,7 +27,7 @@
     <ClCompile Include="User.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Kokat111\Downloads\sqlite-amalgamation-3460000\sqlite-amalgamation-3460000\sqlite3.c">
+    <ClCompile Include="..\Sql\sqlite3.c">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>

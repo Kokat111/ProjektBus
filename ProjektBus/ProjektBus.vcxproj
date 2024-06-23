@@ -127,8 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Sql\sqlite3.c" />
     <ClCompile Include="Bus.cpp" />
-    <ClCompile Include="C:\Users\Kokat111\Downloads\sqlite-amalgamation-3460000\sqlite-amalgamation-3460000\sqlite3.c" />
     <ClCompile Include="ProjektBus.cpp" />
     <ClCompile Include="Ticket.cpp" />
     <ClCompile Include="User.cpp" />
