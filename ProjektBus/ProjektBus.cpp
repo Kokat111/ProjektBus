@@ -1,7 +1,7 @@
 ﻿#include"Bus.h"
 #include"Ticket.h"
 #include"User.h"
-
+#include"SqlManage.h"
 
 void registe() {
     string reglogin, regpassword, regpassword2;
@@ -18,8 +18,13 @@ void registe() {
 }
 
 int main() {
+    SqlManage db;
     Bus bus1;
     Ticket ticket1;
+
+    string sql1 = "SELECT * FROM UserData WHERE UserName='admin'";
+    UserData* loginData = db.getPassword(sql1.c_str());
+    
 
     registe();
 

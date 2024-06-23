@@ -130,12 +130,14 @@
     <ClCompile Include="..\Sql\sqlite3.c" />
     <ClCompile Include="Bus.cpp" />
     <ClCompile Include="ProjektBus.cpp" />
+    <ClCompile Include="SqlManage.cpp" />
     <ClCompile Include="Ticket.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bus.h" />
     <ClInclude Include="Libs.h" />
+    <ClInclude Include="SqlManage.h" />
     <ClInclude Include="Ticket.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
