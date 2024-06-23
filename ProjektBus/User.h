@@ -8,6 +8,6 @@ class User {
     string Password;
 
 public:
-    User(string Username = "usr154", string Password = "melancholY", double Balance = 1.37);
+    User(string Usernam = "adas123", string Passwor = "maslo", double Balanc = 1.37);
     void info();
 };
