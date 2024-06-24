@@ -11,7 +11,7 @@ SqlManage::SqlManage() {
     }
 }
 
-UserData* SqlManage::getPassword(const char* sql){
+UserData* SqlManage::getUser(const char* sql){
     sqlite3_stmt* stmt;
     int rc = sqlite3_prepare_v2(this->db, sql, -1, &stmt, nullptr);
 
@@ -22,31 +22,25 @@ UserData* SqlManage::getPassword(const char* sql){
 
     UserData* userCurrent = NULL;
 
-    int id;
-    string UserName;
-    string Password;
-    UserData* next;
-
     while ((rc = sqlite3_step(stmt)) == SQLITE_ROW) {
         const unsigned char* id = sqlite3_column_text(stmt, 0);
         const unsigned char* userName = sqlite3_column_text(stmt, 1);
         const unsigned char* password = sqlite3_column_text(stmt, 2);
+        const unsigned char* money = sqlite3_column_text(stmt, 3);
         auto* user = new UserData;
         user->id = reinterpret_cast<const char*>(id);
         user->UserName = reinterpret_cast<const char*>(userName);
         user->Password = reinterpret_cast<const char*>(password);
+        user->Money = reinterpret_cast<const char*>(password);
         user->next = NULL;
 
         if (userCurrent == NULL) {
             userCurrent = user;
         }
-        else {
-            cout << "error";
-        }
     }
 
     if (rc != SQLITE_DONE) {
-        std::cerr << "Failed to execute statement: " << sqlite3_errmsg(db) << std::endl;
+        cout << "Failed to execute statement: " << sqlite3_errmsg(db) << std::endl;
     }
 
     sqlite3_finalize(stmt);
@@ -68,7 +62,19 @@ void SqlManage::retriveData(string select, string from, string where) {
     else {
         while (exit = sqlite3_step(stmt) == SQLITE_ROW)
         {
-            
         }
+    }
+}
+
+UserData* SqlManage::insertUser(const char* sql, string userName, string Password) {
+    sqlite3_stmt* stmt;
+    int rc = sqlite3_prepare_v2(this->db, sql, -1, &stmt, nullptr);
+
+    if (rc != SQLITE_OK) {
+        std::cerr << "Failed to prepare statement: " << sqlite3_errmsg(this->db) << std::endl;
+        return NULL;
+    }
+    else {
+        cout << "sukces";
     }
 }
