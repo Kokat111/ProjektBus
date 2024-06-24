@@ -15,6 +15,12 @@ struct TicketData {
     string godzOdjazdu;
     UserData* next;
 };
+struct Booking
+{
+    string id;
+    string User_id;
+    string Ticket_id;
+};
 class SqlManage
 {
 public:

@@ -32,7 +32,6 @@ UserData* SqlManage::getUser(const char* sql){
         user->UserName = reinterpret_cast<const char*>(userName);
         user->Password = reinterpret_cast<const char*>(password);
         user->Money = reinterpret_cast<const char*>(password);
-        user->next = NULL;
 
         if (userCurrent == NULL) {
             userCurrent = user;
