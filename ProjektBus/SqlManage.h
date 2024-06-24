@@ -5,6 +5,14 @@ struct UserData {
     string UserName;
     string Password;
     string Money;
+};
+struct TicketData {
+    string id;
+    string stacjaPocz;
+    string stacjaKonc;
+    string cena;
+    string godzPrzyjazdu;
+    string godzOdjazdu;
     UserData* next;
 };
 class SqlManage
