@@ -47,7 +47,7 @@ void registe() { //funkcja do rejestracji
             }
         }
         string sql1 = "INSERT INTO UserData (UserName, Password, Money) VALUES ( '"+ reglogin +"', '"+regpassword+"',0);";
-        UserData* loginData = db.getUser(sql1.c_str());
+        db.sqlExecute(sql1.c_str());
         cout << "dziala";
     }
     
@@ -85,7 +85,7 @@ int main() {
     UserData* loginData = db.getUser(sql1.c_str());
     
     //login();
-    //registe();
+    registe();
 
     bus1.info();
     ticket1.info();  

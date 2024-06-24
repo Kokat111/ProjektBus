@@ -51,7 +51,6 @@ UserData* SqlManage::getUser(const char* sql){
 void SqlManage::retriveData(string select, string from, string where) {
     sqlite3_stmt* stmt;
     char* messageError;
-    string test;
     string sql = "SELECT " + select + " FROM " + from + " WHERE " + where + ";";
     int exit = sqlite3_open("Data.db",&this->db);
     exit = sqlite3_prepare_v2(this->db, sql.c_str(), -1, &stmt, NULL);
@@ -66,15 +65,18 @@ void SqlManage::retriveData(string select, string from, string where) {
     }
 }
 
-UserData* SqlManage::insertUser(const char* sql, string userName, string Password) {
+void SqlManage::sqlExecute(const char* sql) {
+
     sqlite3_stmt* stmt;
     int rc = sqlite3_prepare_v2(this->db, sql, -1, &stmt, nullptr);
 
     if (rc != SQLITE_OK) {
-        std::cerr << "Failed to prepare statement: " << sqlite3_errmsg(this->db) << std::endl;
-        return NULL;
+        std::cerr << "Failed to prepare statement: " << sqlite3_errmsg(this->db) << std::endl;   
     }
-    else {
-        cout << "sukces";
+    while ((rc = sqlite3_step(stmt)) == SQLITE_ROW) {
     }
+    if (rc != SQLITE_DONE) {
+        cout << "Failed to execute statement: " << sqlite3_errmsg(db) << std::endl;
+    }
+    sqlite3_finalize(stmt);
 }

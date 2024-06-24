@@ -13,7 +13,7 @@ public:
     SqlManage();//konstruktor inicjuj¹cy baze danych 
     UserData* getUser(const char* sql); //funkcja wpisuj¹ca dane usera do struktury
     void retriveData(string select, string from, string where);//funkcja do testowania zapytania SELECT
-    UserData* insertUser(const char* sql,string userName, string Password);
+    void sqlExecute(const char* sql);//funkcja wykonuj¹ca podane polecenie sql
 
       
 private:
